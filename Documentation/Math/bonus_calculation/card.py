@@ -33,7 +33,7 @@ class Card:
 class Deck:
     def __init__(self):
         self.cards = [
-            Card(suit, rank)
+            Card(rank, suit)
             for suit in Suits
             for rank in range(2, 15)
         ]

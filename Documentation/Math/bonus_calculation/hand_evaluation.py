@@ -133,7 +133,6 @@ class Hand:
 
     def __lt__(self, other):
         if self.rank != other.rank:
-            print(self.rank)
             return self.rank < other.rank
 
         for self_rank, other_rank in zip(self.high_cards, other.high_cards):
