@@ -6,6 +6,7 @@ namespace Mkey
 {
     public class SlotMenuController : MonoBehaviour
     {
+        // Add extra spacing aboe this field in Unity Inspector
         [Space(16, order = 0)]
         [SerializeField]
         private SlotController slot;
@@ -17,6 +18,7 @@ namespace Mkey
         #region regular
         void Start()
         {
+            // Finds and stores all Buttons components that are children of this GameObject
             buttons = GetComponentsInChildren<Button>(true);
         }
         #endregion regular
