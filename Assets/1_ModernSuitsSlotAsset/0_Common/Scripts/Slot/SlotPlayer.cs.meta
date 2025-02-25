@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ade820d1fd084394fa71de200fd6dfb5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: -50
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115588
+  packageName: MK - Modern Suits Slot Asset
+  packageVersion: 3.2.0
+  assetPath: Assets/1_ModernSuitsSlotAsset/0_Common/Scripts/Slot/SlotPlayer.cs
+  uploadId: 644023

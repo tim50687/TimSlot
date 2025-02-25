@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 2f2a3789a6d54d94b9e49c69d4ace99b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115588
+  packageName: MK - Modern Suits Slot Asset
+  packageVersion: 3.2.0
+  assetPath: Assets/1_ModernSuitsSlotAsset/0_Common/Scripts/Dev/CreatePaytableSymbs.cs
+  uploadId: 644023

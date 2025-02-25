@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 667430850d15b8149b2f72085bcb206d
+timeCreated: 1468226642
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115588
+  packageName: MK - Modern Suits Slot Asset
+  packageVersion: 3.2.0
+  assetPath: Assets/1_ModernSuitsSlotAsset/0_Common/Materials_Shaders/SlotLineFade.mat
+  uploadId: 644023

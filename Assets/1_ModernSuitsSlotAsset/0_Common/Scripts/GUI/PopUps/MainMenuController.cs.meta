@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 2ce1d24de5a2b6e4c98c5e2503ad8b60
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115588
+  packageName: MK - Modern Suits Slot Asset
+  packageVersion: 3.2.0
+  assetPath: Assets/1_ModernSuitsSlotAsset/0_Common/Scripts/GUI/PopUps/MainMenuController.cs
+  uploadId: 644023

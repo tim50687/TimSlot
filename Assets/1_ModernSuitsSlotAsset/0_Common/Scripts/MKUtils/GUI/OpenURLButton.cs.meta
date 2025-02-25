@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c29cdda1a8d4b8a4782237e52c33ab9d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115588
+  packageName: MK - Modern Suits Slot Asset
+  packageVersion: 3.2.0
+  assetPath: Assets/1_ModernSuitsSlotAsset/0_Common/Scripts/MKUtils/GUI/OpenURLButton.cs
+  uploadId: 644023

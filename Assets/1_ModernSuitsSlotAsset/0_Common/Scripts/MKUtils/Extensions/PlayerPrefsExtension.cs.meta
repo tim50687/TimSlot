@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 60295798f567a884a9a6af12a06f3079
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115588
+  packageName: MK - Modern Suits Slot Asset
+  packageVersion: 3.2.0
+  assetPath: Assets/1_ModernSuitsSlotAsset/0_Common/Scripts/MKUtils/Extensions/PlayerPrefsExtension.cs
+  uploadId: 644023

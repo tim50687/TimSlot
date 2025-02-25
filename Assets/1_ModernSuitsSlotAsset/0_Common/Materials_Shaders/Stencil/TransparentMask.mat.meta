@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2d863a723b3761c4cb44cfb105961b2a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115588
+  packageName: MK - Modern Suits Slot Asset
+  packageVersion: 3.2.0
+  assetPath: Assets/1_ModernSuitsSlotAsset/0_Common/Materials_Shaders/Stencil/TransparentMask.mat
+  uploadId: 644023

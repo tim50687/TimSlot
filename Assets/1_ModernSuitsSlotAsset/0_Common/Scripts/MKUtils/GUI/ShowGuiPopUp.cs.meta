@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 78e9adb7bed7cc049ab899915d9cca86
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115588
+  packageName: MK - Modern Suits Slot Asset
+  packageVersion: 3.2.0
+  assetPath: Assets/1_ModernSuitsSlotAsset/0_Common/Scripts/MKUtils/GUI/ShowGuiPopUp.cs
+  uploadId: 644023

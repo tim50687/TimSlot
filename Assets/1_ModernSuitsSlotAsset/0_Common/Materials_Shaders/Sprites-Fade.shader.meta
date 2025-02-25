@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d5baf9d64e094f744ba864841f2f0da5
+timeCreated: 1468226702
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115588
+  packageName: MK - Modern Suits Slot Asset
+  packageVersion: 3.2.0
+  assetPath: Assets/1_ModernSuitsSlotAsset/0_Common/Materials_Shaders/Sprites-Fade.shader
+  uploadId: 644023

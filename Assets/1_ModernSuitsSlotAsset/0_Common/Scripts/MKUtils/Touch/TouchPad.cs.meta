@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 56e95f795fb056847b8cfd445329b8b6
+timeCreated: 1484064472
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 115588
+  packageName: MK - Modern Suits Slot Asset
+  packageVersion: 3.2.0
+  assetPath: Assets/1_ModernSuitsSlotAsset/0_Common/Scripts/MKUtils/Touch/TouchPad.cs
+  uploadId: 644023
