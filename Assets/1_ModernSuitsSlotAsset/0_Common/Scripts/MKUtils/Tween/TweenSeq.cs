@@ -67,13 +67,12 @@ namespace Mkey
 {
     public class TweenSeq
     {
-
         List<Action<Action>> seqL;
         List<Action> callBackL;
 
-        Action fullComplete;
-        Action complCallBack;
-        bool breakSeq = false;
+        Action fullComplete; // call when all animations are complete
+        Action complCallBack; 
+        bool breakSeq = false; // flag for break sequence
 
         public bool IsComplete
         {
@@ -183,12 +182,14 @@ namespace Mkey
 
     public class ParallelTween
     {
+        // Store tween that need to be executed in parallel
         List<Action<Action>> seqL;
         int count = 0;
         int ended = 0;
 
         public ParallelTween()
         {
+            // Store functions that take a callback function as a parameter
             seqL = new List<Action<Action>>();
             ended = 0;
         }
@@ -205,6 +206,7 @@ namespace Mkey
             {
                 for (int i = 0; i < seqL.Count; i++)
                 {
+                    // Call each action, and passing the callback function
                     seqL[i](() => { ended++; if (ended == count) { completeAction?.Invoke(); } });
                 }
             }

@@ -11,17 +11,18 @@ namespace Mkey
     public enum JackPotType { None, Mini, Maxi, Mega }
     public enum JackPotIncType { Const, Percent } // add const value or percent of start value
 
+    // Central Manager for handling slot machine game 
     public class SlotController : MonoBehaviour
     {
       //  public string machineID;
 
         #region main reference
         [SerializeField]
-        private SlotMenuController menuController;
+        private SlotMenuController menuController; // Manage slot game UI
         [SerializeField]
-        private SlotControls controls;
+        private SlotControls controls; // Handle user input (bet, spin, etc)
         [SerializeField]
-        private WinController winController;
+        private WinController winController; // Control winning logic
         [SerializeField]
         private AudioClip spinSound;
         [SerializeField]
@@ -34,7 +35,7 @@ namespace Mkey
 
         #region icons
         [SerializeField, ArrayElementTitle("iconSprite"), NonReorderable]
-        public SlotIcon[] slotIcons;
+        public SlotIcon[] slotIcons; // Store all the slot machine icons
 
         [Space(8)]
         [SerializeField]
@@ -79,7 +80,7 @@ namespace Mkey
         private EaseAnim inRotType = EaseAnim.EaseLinear; // in rotation part
         [SerializeField]
         [Tooltip("Time in rotation part, 0-1 sec")]
-        private float inRotTime = 0.3f;
+        private float inRotTime = 0.3f; // Takes 0.3 seconds to accelerate.
         [SerializeField]
         [Tooltip("In rotation part angle, 0-10 deg")]
         private float inRotAngle = 7;
@@ -89,7 +90,7 @@ namespace Mkey
         private EaseAnim outRotType = EaseAnim.EaseLinear;   // out rotation part
         [SerializeField]
         [Tooltip("Time out rotation part, 0-1 sec")]
-        private float outRotTime = 0.3f;
+        private float outRotTime = 0.3f; // Takes 0.3 seconds to slow down.
         [SerializeField]
         [Tooltip("Out rotation part angle, 0-10 deg")]
         private float outRotAngle = 7;
@@ -189,13 +190,14 @@ namespace Mkey
         public bool useWildInFirstPosition = false;
 
         #region regular
-        private void OnValidate()
+        private void OnValidate() // Run whenever a value is changed in the inspector
         {
             Validate();
         }
 
         void Validate()
         {
+            // Ensure always between 0 and 20
             mainRotateTimeRandomize = (int)Mathf.Clamp(mainRotateTimeRandomize, 0, 20);
 
             inRotTime = Mathf.Clamp(inRotTime, 0, 1f);
@@ -219,7 +221,7 @@ namespace Mkey
                 }
             }
         }
-      
+
         void Start()
         {
             wfs1_0 = new WaitForSeconds(1.0f);
@@ -235,7 +237,7 @@ namespace Mkey
             {
                 reelData = new ReelData(sGB.symbOrder);
                 reelsData[i++] = reelData;
-                sGB.CreateSlotCylinder(slotIcons, slotTilesCount, tilePrefab);
+                sGB.CreateSlotCylinder(slotIcons, slotTilesCount, tilePrefab); 
             }
 
             CreateFullPaytable();
@@ -273,7 +275,9 @@ namespace Mkey
 
             winController.ResetLineWinning();
             controls.JPWinCancel();
-
+            
+            // If a spin coroutine was running previously, stop it to ensure 
+            // we don't have multiple coroutines running at once.
             StopCoroutine(RunSlotsAsync());
 
             if (!controls.AnyLineSelected)
@@ -319,6 +323,7 @@ namespace Mkey
             MPlayer.SetWinCoinsCount(0);
 
             //1 ---------------start preparation-------------------------------
+            // Disable player interaction
             SetInputActivity(false);
             winController.HideAllLines();
 
@@ -328,6 +333,7 @@ namespace Mkey
 
             //2 --------start rotating ----------------------------------------
             bool fullRotated = false;
+            // The callback is called when all reels have finished rotating
             RotateSlots(() => { MSound.StopClips(spinSound); fullRotated = true; });
             while (!fullRotated) yield return wfs0_2;  // wait 
             EndSpinEvent?.Invoke();
@@ -335,6 +341,7 @@ namespace Mkey
 
             //3 --------check result-------------------------------------------
             BeginWinCalcEvent?.Invoke();
+            // search for matching symbol
             winController.SearchWinSymbols();
             bool hasLineWin = false;
             bool hasScatterWin = false;
@@ -527,6 +534,16 @@ namespace Mkey
                 {
                     pT.Add((callBack) =>
                     {
+                        // mainRotateType: Type of easing function for the main spin
+                        // inRotType: Easing type when the reel starts spinning
+                        // outRotType: Easing type when the reel stops spinning
+                        // mainRotateTime: Duration for the main spin
+                        // inRotTime: Duration for the start acceleration phase 
+                        // outRotTime: Duration for the stop deceleration phase
+                        // inRotAngle: Angle for the start acceleration phase
+                        // outRotAngle: Angle for the stop deceleration phase
+                        // r: The symbol to stop on
+                        // callBack: The callback to call when the reel stops spinning
                         slotGroupsBeh[n].NextRotateCylinderEase(mainRotateType, inRotType, outRotType,
                             mainRotateTime, mainRotateTimeRandomize / 100f,
                             inRotTime, outRotTime, inRotAngle, outRotAngle,

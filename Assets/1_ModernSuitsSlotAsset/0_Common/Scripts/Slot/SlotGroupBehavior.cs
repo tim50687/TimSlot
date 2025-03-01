@@ -111,8 +111,8 @@ namespace Mkey
         internal void CreateSlotCylinder(SlotIcon[] sprites, int tileCount, GameObject tilePrefab)
         {
             CurrOrderPosition = 0;
-            this.sprites = sprites;
-            this.tileCount = tileCount;
+            this.sprites = sprites; // slot icons
+            this.tileCount = tileCount; // total number of tiles on reel
             slotSymbols = new SlotSymbol[tileCount];
 
             // create Reel transform
@@ -125,16 +125,21 @@ namespace Mkey
             // calculate reel geometry
             float distTileY = tileSizeY + gapY; //old float distTileY = 3.48f;
 
+            // Number of degrees each tile occupies in a full 360 rotation
             anglePerTileDeg = 360.0f / (float)tileCount;
             anglePerTileRad = anglePerTileDeg * Mathf.Deg2Rad;
+            // Find the radius from center of cylinder to the center of a tile
             float radius = (distTileY / 2f) / Mathf.Tan(anglePerTileRad / 2.0f); //old float radius = ((tileCount + 1) * distTileY) / (2.0f * Mathf.PI);
 
+            // how many symbols are visible in the window
             windowSize = rayCasters.Length;
 
             bool isEvenRayCastersCount = (windowSize % 2 == 0);
+            // How many symbols are above the center before adjusting the reel position
             int dCount = (isEvenRayCastersCount) ? windowSize / 2 - 1 : windowSize / 2;
             float addAnglePerTileDeg = (isEvenRayCastersCount) ? -anglePerTileDeg*dCount - anglePerTileDeg /2f : -anglePerTileDeg;
             float addAnglePerTileRad = (isEvenRayCastersCount) ? -anglePerTileRad*dCount - anglePerTileRad /2f : -anglePerTileRad;
+            // Top most visible symbol
             topSector = windowSize - 1;
 
             TilesGroup.localPosition = new Vector3(TilesGroup.localPosition.x, TilesGroup.localPosition.y, radius); // offset reel position by z-coordinat

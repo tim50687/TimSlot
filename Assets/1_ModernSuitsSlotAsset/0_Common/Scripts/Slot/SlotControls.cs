@@ -71,6 +71,8 @@ namespace Mkey
         private int maxAutoSpins = int.MaxValue;
         #endregion default
 
+        private int fixedTotalBet = 1;
+
         #region output
         [Space(16, order = 0)]
         [SerializeField]
@@ -196,7 +198,7 @@ namespace Mkey
 
         public int TotalBet
         {
-            get { return LineBet * SelectedLinesCount * HoldMultipler; }
+            get { return fixedTotalBet; }
         }
 
         public int HoldMultipler
