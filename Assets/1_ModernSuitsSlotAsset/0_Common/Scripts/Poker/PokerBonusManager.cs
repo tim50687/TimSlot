@@ -4,44 +4,59 @@ using System.Collections.Generic;
 
 namespace PokerBonus
 {
+
     /// <summary>
     /// Simple MonoBehaviour that uses the Deck and PokerHand classes
     /// to demonstrate a "bonus game" scenario.
     /// </summary>
     public class PokerBonusManager : MonoBehaviour
     {
+        public Transform dealerCardsParent;
+        public Transform playerCardsParent;
+        public CardSpriteMapping cardSpriteMapping;
+        public GameObject cardPrefab; 
+
+        public Sprite cardBackSprite; 
+
+        private List<Card> dealerCards;  // Create your own CardData class or use a similar structure
+        private List<Card> playerCards;
+
         [Header("Poker Bonus Game Setup")]
         [Tooltip("Enter the name of the bonus scene to load")]
         public string nextSceneName = "BonusGameScene";
 
         private void Start()
         {
-            // Example: deal & evaluate two 5-card hands automatically
-            TestBonusRound();
-        }
-
-        /// <summary>
-        /// Deals a player hand and dealer hand, compares them, and logs the results.
-        /// This is just a simple demonstration you can expand in your own UI.
-        /// </summary>
-        public void TestBonusRound()
-        {
             Deck deck = new Deck();
             List<Card> playerCards = deck.Deal(5);
             List<Card> dealerCards = deck.Deal(5);
 
-            PokerHand playerHand = new PokerHand(playerCards);
-            PokerHand dealerHand = new PokerHand(dealerCards);
+            for (int i = 0; i < dealerCards.Count; i++)
+            {
+                dealerCards[i].IsFaceUp = (i < 3); // reveal first 2 cards
+            }
+            for (int i = 0; i < playerCards.Count; i++)
+            {
+                playerCards[i].IsFaceUp = (i < 3);
+            }
 
-            Debug.Log("Player has: " + string.Join(", ", playerCards) + " => " + playerHand.Rank);
-            Debug.Log("Dealer has: " + string.Join(", ", dealerCards) + " => " + dealerHand.Rank);
-
-            bool playerWins = (playerHand > dealerHand);
-            if (playerWins)
-                Debug.Log("PLAYER WINS!");
-            else
-                Debug.Log("PLAYER LOSES!");
+            DisplayCards(dealerCards, dealerCardsParent);
+            DisplayCards(playerCards, playerCardsParent);
         }
+        
+        private void DisplayCards(List<Card> cards, Transform parent)
+        {
+            foreach (var card in cards)
+            {
+                GameObject cardObj = Instantiate(cardPrefab, parent);
+                CardDisplay cd = cardObj.GetComponent<CardDisplay>();
+                cd.rank = card.Rank;
+                cd.suit = card.Suit;
+                cd.isFaceUp = card.IsFaceUp;
+                cd.SetCard(cardSpriteMapping.GetSprite(cd.rank, cd.suit));
+            }
+        }
+        
 
         /// <summary>
         /// Example method for loading the bonus scene
