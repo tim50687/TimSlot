@@ -100,7 +100,7 @@ namespace Mkey
         private EaseAnim mainRotateType = EaseAnim.EaseLinear;   // main rotation part
         [SerializeField]
         [Tooltip("Time main rotation part, sec")]
-        private float mainRotateTime = 4f;
+        private float mainRotateTime = 2f;
         [Tooltip("min 0% - max 20%, change rotateTime")]
         [SerializeField]
         private int mainRotateTimeRandomize = 10;
@@ -477,10 +477,22 @@ namespace Mkey
                 controls.ResetAutoSpinsMode();
             }
 
+            CheckThreeBonusSymbols();
+
             if (controls.Auto || playFreeSpins)
             {
                 RunSlots();
             }
+        }
+
+        private void CheckThreeBonusSymbols()
+        {
+            TriggerBonusRound();
+        }
+
+        private void TriggerBonusRound()
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("BonusGameScene");
         }
 
         private void IncreaseJackPots()

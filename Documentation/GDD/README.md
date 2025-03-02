@@ -68,16 +68,16 @@ Gameplay:
 #### 2.2.3 Winning Conditions
 You have to beat the dealer's hand to win the prize pool.
 
-- Royal Flush: 10x prize pool (Odds: 0.000154%)
-- Straight Flush: 5x prize pool (Odds: 0.00139%)
-- Four of a Kind: 4x prize pool (Odds: 0.0240%)
-- Full House: 3.5x prize pool (Odds: 0.1441%)
-- Flush: 3x prize pool (Odds: 0.1965%)
-- Straight: 2x prize pool (Odds: 0.3925%)
-- Three of a Kind: 1.5x prize pool (Odds: 2.1128%)
-- Two Pair: 1.2x prize pool (Odds: 4.7539%)
-- Pair: 1x prize pool (Odds: 42.2569%)
-- High Card: 5x prize pool (Odds: 50.1177%)
+- Royal Flush: 100000x prize pool (Odds: 0.000154%)
+- Straight Flush: 10000x prize pool (Odds: 0.00139%)
+- Four of a Kind: 1000x prize pool (Odds: 0.0240%)
+- Full House: 500x prize pool (Odds: 0.1441%)
+- Flush: 300x prize pool (Odds: 0.1965%)
+- Straight: 100x prize pool (Odds: 0.3925%)
+- Three of a Kind: 50x prize pool (Odds: 2.1128%)
+- Two Pair: 25x prize pool (Odds: 4.7539%)
+- Pair: 5x prize pool (Odds: 42.2569%)
+- High Card: 3x prize pool (Odds: 50.1177%)
 
 
 ## 3. Visual and Audio Design
