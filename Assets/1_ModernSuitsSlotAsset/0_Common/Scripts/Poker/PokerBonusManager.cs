@@ -19,32 +19,27 @@ namespace PokerBonus
         public CardSpriteMapping cardSpriteMapping;
         public GameObject cardPrefab; 
 
+        // Update the balance text
         public Text balanceText;
         private int newBalance = 0;
 
-        public Sprite cardBackSprite; 
 
-        private List<Card> dealerCards;  // Create your own CardData class or use a similar structure
+        private List<Card> dealerCards; 
         private List<Card> playerCards;
 
-        [Header("Poker Bonus Game Setup")]
-        [Tooltip("Enter the name of the bonus scene to load")]
-        public string nextSceneName = "BonusGameScene";
 
         private Deck deck;
 
         private bool hasSwitchedCard = false;
 
         [Header("Poker Bonus Game Setup")]
-        public string previousSceneName = "3_Slot_3X3"; // Set this to your slot scene
+        public string previousSceneName = "3_Slot_3X3"; 
 
         [SerializeField] private AudioClip cardClickSound;
         [SerializeField] private AudioClip winSound;
         [SerializeField] private AudioClip loseSound;
 
         private AudioSource audioSource;
-
-
 
         private Dictionary<HandRank, int> multipliers = new Dictionary<HandRank, int>
         {
@@ -155,7 +150,7 @@ namespace PokerBonus
 
             if (playerHand > dealerHand)
             {
-                int winnings = 1 * multipliers[playerHand.Rank]; // Adjust multiplier
+                int winnings = 1 * multipliers[playerHand.Rank]; 
                 // get the balance from text
                 int balance = int.Parse(balanceText.text.Replace(",", ""));
                 newBalance = balance + winnings;

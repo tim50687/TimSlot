@@ -14,10 +14,8 @@ public class CardSpriteEntry
 // Maps each card's rank and suit to its sprite image.
 public class CardSpriteMapping : MonoBehaviour
 {
-    // Drag and drop each card image into this list via the Inspector.
     public List<CardSpriteEntry> cardSprites;
 
-    // Optionally cache into a dictionary for fast lookup:
     private Dictionary<string, Sprite> spriteDict;
 
     void Awake()

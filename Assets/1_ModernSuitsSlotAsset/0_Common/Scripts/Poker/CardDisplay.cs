@@ -4,15 +4,16 @@ using UnityEngine.EventSystems;
 
 namespace PokerBonus
 {
+/// <summary>
+/// Displays a single playing card with a rank (2..14) and suit (Hearts, Spades, Diamonds, Clubs).
+/// </summary>
 public class CardDisplay : MonoBehaviour, IPointerClickHandler
 {
     public int rank;
     public Suits suit;
     public bool isFaceUp = true;
-
     private Image cardImage;
-
-    // A sprite for the card back (assigned via Inspector or via a manager)
+    // A sprite for the card back 
     public Sprite cardBackSprite;
 
     public int cardIndex;

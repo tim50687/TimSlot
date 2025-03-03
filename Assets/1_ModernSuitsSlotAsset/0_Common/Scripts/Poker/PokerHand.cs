@@ -154,7 +154,6 @@ namespace PokerBonus
             return true;
         }
 
-        // Optional: compare operator
         public static bool operator <(PokerHand a, PokerHand b)
         {
             if (a.Rank != b.Rank) return a.Rank < b.Rank;
