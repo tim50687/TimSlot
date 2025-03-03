@@ -31,6 +31,8 @@ namespace Mkey
         private AudioClip winCoinsSound;
         [SerializeField]
         private AudioClip winFreeSpinSound;
+        [SerializeField]
+        private AudioClip bonusSoundClip;
         #endregion main reference
 
         #region icons
@@ -46,6 +48,7 @@ namespace Mkey
         public List<PayLine> payTable;
         internal List<PayLine> payTableFull; // extended  if useWild
         #endregion payTable
+
 
         #region special major
         public int scatter_id;
@@ -347,6 +350,9 @@ namespace Mkey
             bool hasScatterWin = false;
             bool bigWin = false;
 
+
+            CheckThreeBonusSymbols();
+
             // 3a ----- increase jackpots ----
             IncreaseJackPots();
 
@@ -477,8 +483,6 @@ namespace Mkey
                 controls.ResetAutoSpinsMode();
             }
 
-            CheckThreeBonusSymbols();
-
             if (controls.Auto || playFreeSpins)
             {
                 RunSlots();
@@ -487,13 +491,32 @@ namespace Mkey
 
         private void CheckThreeBonusSymbols()
         {
+            int bonusCount = 0;
+
+            for (int i = 0; i < slotGroupsBeh.Length; i++)
+            {
+                if (slotGroupsBeh[i].RayCasters[1].GetSymbol().GetSprite() == slotIcons[11].iconSprite)
+                {
+                    bonusCount++;
+                }
+            }
+            if (bonusCount >= 3)
+            {
+            MSound.PlayClip(0f, bonusSoundClip);
+            controls.ResetAutoSpinsMode();
             TriggerBonusRound();
+            }
         }
 
         private void TriggerBonusRound()
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("BonusGameScene");
+            StartCoroutine(GoToBonusRound());
         }
+
+        private IEnumerator GoToBonusRound()
+        {
+            yield return new WaitForSeconds(2.0f); 
+            UnityEngine.SceneManagement.SceneManager.LoadScene("BonusGameScene");        }
 
         private void IncreaseJackPots()
         {

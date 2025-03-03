@@ -103,7 +103,7 @@ namespace Mkey
             #region main reference
             ShowPropertiesBoxFoldOut("Main references: ", new string[] { "menuController", "controls" ,"winController", 
                                                                          "spinSound", "looseSound", "winCoinsSound", 
-                                                                         "winFreeSpinSound" }, ref showRef, false );
+                                                                         "winFreeSpinSound", "bonusSoundClip"}, ref showRef, false );
             #endregion main reference
 
             #region icons
