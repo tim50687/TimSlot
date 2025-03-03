@@ -22,7 +22,7 @@ class PokerBonusSimulator:
             HandRank.THREE_KIND: 50,
             HandRank.TWO_PAIR: 25,
             HandRank.PAIR: 5,
-            HandRank.HIGH_CARD: 3
+            HandRank.HIGH_CARD: 5
         }
 
     def run_simulation(self, num_trials: int = 1000000):

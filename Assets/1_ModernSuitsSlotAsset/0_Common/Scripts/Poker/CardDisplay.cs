@@ -42,6 +42,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         {
             if (isFaceUp && isSwitchable) // Can only switch face-up cards
             {
+                bonusManager.PlayCardClickSound();
                 bonusManager.TrySwitchCard(cardIndex, gameObject);
             }
         }

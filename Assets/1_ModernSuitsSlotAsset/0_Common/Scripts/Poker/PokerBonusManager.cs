@@ -38,6 +38,13 @@ namespace PokerBonus
         [Header("Poker Bonus Game Setup")]
         public string previousSceneName = "3_Slot_3X3"; // Set this to your slot scene
 
+        [SerializeField] private AudioClip cardClickSound;
+        [SerializeField] private AudioClip winSound;
+        [SerializeField] private AudioClip loseSound;
+
+        private AudioSource audioSource;
+
+
 
         private Dictionary<HandRank, int> multipliers = new Dictionary<HandRank, int>
         {
@@ -50,7 +57,7 @@ namespace PokerBonus
             { HandRank.ThreeOfKind, 50 },
             { HandRank.TwoPair, 25 },
             { HandRank.Pair, 5 },
-            { HandRank.HighCard, 3 }
+            { HandRank.HighCard, 5 }
         };
 
         private void Start()
@@ -58,6 +65,7 @@ namespace PokerBonus
             deck = new Deck();
             playerCards = deck.Deal(5);
             dealerCards = deck.Deal(5);
+            audioSource = GetComponent<AudioSource>();
 
             for (int i = 0; i < dealerCards.Count; i++)
             {
@@ -152,15 +160,18 @@ namespace PokerBonus
                 int balance = int.Parse(balanceText.text.Replace(",", ""));
                 newBalance = balance + winnings;
                 UpdateBalanceUI();
+                audioSource.PlayOneShot(winSound);
                 FindObjectOfType<PokerBonusUI>().ShowMessage($"You Win! You earned {winnings} coins. Returning to Slot Game...");
                 SlotPlayer.Instance.AddCoins(winnings);
             }
             else if (playerHand < dealerHand)
             {
+                audioSource.PlayOneShot(loseSound);
                 FindObjectOfType<PokerBonusUI>().ShowMessage("You Lose! Returning to Slot Game...");
             }
             else
             {
+                audioSource.PlayOneShot(loseSound);
                 FindObjectOfType<PokerBonusUI>().ShowMessage("It's a Tie! Returning to Slot Game...");
             }
 
@@ -177,8 +188,13 @@ namespace PokerBonus
 
         private IEnumerator ReturnToPreviousScene()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
             SceneManager.LoadScene(previousSceneName);
+        }
+
+        public void PlayCardClickSound()
+        {
+            audioSource.PlayOneShot(cardClickSound);
         }
     }
 }
