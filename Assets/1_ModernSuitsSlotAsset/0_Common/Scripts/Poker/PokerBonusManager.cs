@@ -46,6 +46,8 @@ namespace PokerBonus
         
         private void DisplayCards(List<Card> cards, Transform parent)
         {
+            float xOffset = 5f;
+            int index = 0;
             foreach (var card in cards)
             {
                 GameObject cardObj = Instantiate(cardPrefab, parent);
@@ -54,6 +56,9 @@ namespace PokerBonus
                 cd.suit = card.Suit;
                 cd.isFaceUp = card.IsFaceUp;
                 cd.SetCard(cardSpriteMapping.GetSprite(cd.rank, cd.suit));
+
+                cardObj.transform.localPosition = new Vector3(index * xOffset, 0, 0);
+                index++;
             }
         }
         
