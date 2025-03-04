@@ -13,11 +13,11 @@ class PokerBonusSimulator:
         self.cost_to_enter = cost_to_enter
         self.strategy = RespinStrategy()
         self.multipliers = {
-            HandRank.ROYAL_FLUSH: 100000,
-            HandRank.STRAIGHT_FLUSH: 10000,
-            HandRank.FOUR_KIND: 1000,
-            HandRank.FULL_HOUSE: 500,
-            HandRank.FLUSH: 300,
+            HandRank.ROYAL_FLUSH: 10000,
+            HandRank.STRAIGHT_FLUSH: 1000,
+            HandRank.FOUR_KIND: 500,
+            HandRank.FULL_HOUSE: 300,
+            HandRank.FLUSH: 200,
             HandRank.STRAIGHT: 100,
             HandRank.THREE_KIND: 50,
             HandRank.TWO_PAIR: 25,

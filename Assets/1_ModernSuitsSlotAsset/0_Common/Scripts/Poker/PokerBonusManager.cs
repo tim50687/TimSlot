@@ -43,11 +43,11 @@ namespace PokerBonus
 
         private Dictionary<HandRank, int> multipliers = new Dictionary<HandRank, int>
         {
-            { HandRank.RoyalFlush, 100000 },
-            { HandRank.StraightFlush, 10000 },
-            { HandRank.FourOfKind, 1000 },
-            { HandRank.FullHouse, 500 },
-            { HandRank.Flush, 300 },
+            { HandRank.RoyalFlush, 10000 },
+            { HandRank.StraightFlush, 1000 },
+            { HandRank.FourOfKind, 500 },
+            { HandRank.FullHouse, 300 },
+            { HandRank.Flush, 200 },
             { HandRank.Straight, 100 },
             { HandRank.ThreeOfKind, 50 },
             { HandRank.TwoPair, 25 },
